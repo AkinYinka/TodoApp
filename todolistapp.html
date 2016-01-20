@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html data-framework="jquery" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>jQuery • TodoMVC</title>
+		<link rel="stylesheet" href="todolistapp_files/base.css">
+		<link rel="stylesheet" href="todolistapp_files/index.css">
+		<link rel="stylesheet" href="todolistapp_files/app.css">
+	</head>
+	<body class="learn-bar">
+		<section id="todoapp">
+			<header id="header">
+				<h1>Todo app</h1>
+				<input id="new-todo" placeholder="What needs to be done?" autofocus="">
+			</header>
+			<section style="display: block;" id="main">
+				<input id="toggle-all" type="checkbox">
+				<label for="toggle-all">Mark all as complete</label>
+				<ul id="todo-list">
+			<li class="completed" data-id="b48c66d1-0c91-49c5-afb6-06064c44c38f">
+				<div class="view">
+					<input class="toggle" checked="checked" type="checkbox">
+					<label>wash</label>
+					<button class="destroy"></button>
+				</div>
+				<input class="edit" value="wash">
+			</li>
+			<li class="completed" data-id="a46fde9b-71b1-4f2e-a736-df926b83aff8">
+				<div class="view">
+					<input class="toggle" checked="checked" type="checkbox">
+					<label>go out</label>
+					<button class="destroy"></button>
+				</div>
+				<input class="edit" value="go out">
+			</li>
+		</ul>
+			</section>
+			<footer style="display: block;" id="footer">
+			<span id="todo-count"><strong>1</strong> item left</span>
+			<ul id="filters">
+				<li>
+					<a href="#/all">All</a>
+				</li>
+				<li>
+					<a href="#/active">Active</a>
+				</li>
+				<li>
+					<a class="selected" href="#/completed">Completed</a>
+				</li>
+			</ul>
+			<button id="clear-completed">Clear completed</button>
+		</footer>
+		</section>
+		<footer id="info">
+			<p>Double-click to edit a todo</p>
+			<p>Created by <a href="http://akinyinka.github.io/">Yinka Akinbobola</a></p>
+			<p>Part of <a href="http://todomvc.com/">TodoMVC</a></p>
+		</footer>
+		<script src="todolistapp_files/ga.js"></script><script id="todo-template" type="text/x-handlebars-template">
+			{{#this}}
+			<li {{#if completed}}class="completed"{{/if}} data-id="{{id}}">
+				<div class="view">
+					<input class="toggle" type="checkbox" {{#if completed}}checked{{/if}}>
+					<label>{{title}}</label>
+					<button class="destroy"></button>
+				</div>
+				<input class="edit" value="{{title}}">
+			</li>
+		{{/this}}
+		</script>
+		<script id="footer-template" type="text/x-handlebars-template">
+			<span id="todo-count"><strong>{{activeTodoCount}}</strong> {{activeTodoWord}} left</span>
+			<ul id="filters">
+				<li>
+					<a {{#eq filter 'all'}}class="selected"{{/eq}} href="#/all">All</a>
+				</li>
+				<li>
+					<a {{#eq filter 'active'}}class="selected"{{/eq}}href="#/active">Active</a>
+				</li>
+				<li>
+					<a {{#eq filter 'completed'}}class="selected"{{/eq}}href="#/completed">Completed</a>
+				</li>
+			</ul>
+			{{#if completedTodos}}<button id="clear-completed">Clear completed</button>{{/if}}
+		</script>
+		<script src="todolistapp_files/base.js"></script>
+		<script src="todolistapp_files/jquery.js"></script>
+		<script src="todolistapp_files/handlebars.js"></script>
+		<script src="todolistapp_files/director.js"></script>
+		<script src="todolistapp_files/app.js"></script>
+	
+
+</body></html>
